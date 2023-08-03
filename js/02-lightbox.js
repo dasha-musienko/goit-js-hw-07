@@ -6,7 +6,7 @@ const galleryContainer = document.querySelector(".gallery")
 galleryContainer.innerHTML = createsMarkup(galleryItems)
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
+  captionsData: "alt",
   captionDelay: 250,
 });
 

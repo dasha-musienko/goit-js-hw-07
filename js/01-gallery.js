@@ -45,20 +45,26 @@ function modalHandler (img, descr) {
   <img src="${img}" alt="${descr}">
 `, {
   onShow: (instance) => {
-    escapeKeyDownHandler (instance)
-  }
+    window.addEventListener('keydown', escapeButtonHandler)
+  },
+
+  onClose(instance) {
+    window.removeEventListener('keydown', escapeButtonHandler);
+  },
 })
+
+
+function escapeButtonHandler (e) {
+  if (e.key === 'Escape') {
+    instance.close();
+  }
+}
 
 instance.show();
 }
 
-function escapeKeyDownHandler (ins) {
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      ins.close();
-    }
-  }, {once: true});
-}
+
+
 
 
 
